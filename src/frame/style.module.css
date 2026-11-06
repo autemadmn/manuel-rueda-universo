@@ -1,0 +1,102 @@
+.frame {
+  padding: 1rem var(--page-padding, 1.5rem) 0;
+  display: grid;
+  z-index: 1000;
+  position: relative;
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 1rem;
+  pointer-events: none;
+  justify-items: start;
+  align-items: center;
+  grid-template-columns: auto auto auto auto 1fr;
+  grid-template-areas:
+    "title title credits ..."
+    "back archive github ..."
+    "tags tags tags tags"
+    "sponsor sponsor sponsor sponsor";
+  color: #fff;
+  mix-blend-mode: difference;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.frame a,
+.frame button {
+  pointer-events: auto;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.frame__title {
+  grid-area: title;
+  font-family: "Asul", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.frame__back {
+  grid-area: back;
+  justify-self: start;
+}
+
+.frame__archive {
+  grid-area: archive;
+  justify-self: start;
+}
+
+.frame__github {
+  grid-area: github;
+}
+
+.frame__credits {
+  grid-area: credits;
+}
+
+.frame__tags {
+  grid-area: tags;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.frame__tags a {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+@media screen and (min-width: 53em) {
+  .frame {
+    padding: var(--page-padding, 1.5rem);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    grid-column-gap: 2rem;
+    grid-template-columns: auto auto auto 1fr;
+    grid-template-rows: auto auto auto;
+    align-content: space-between;
+    grid-template-areas:
+      "back github archive ... credits"
+      "title title title title title"
+      "tags tags tags tags sponsor";
+  }
+
+  .frame__title {
+    justify-self: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .frame__tags {
+    align-self: end;
+    gap: 2rem;
+  }
+
+  .frame__credits {
+    text-align: right;
+  }
+}
